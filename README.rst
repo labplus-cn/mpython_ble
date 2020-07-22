@@ -12,6 +12,8 @@
 
 本模块适用于 `MicroPython <https://github.com/micropython/micropython/>`_ 及衍生的相关项目,如掌控板 `mPython <https://github.com/labplus-cn/mpython>`_ 。
 
+托管文档: https://mpython-ble.readthedocs.io/
+
 模块根据蓝牙BLE的应用和饰演的角色,设计以下几大功能点:
 
 * `外围设备(Peripheral)` 
