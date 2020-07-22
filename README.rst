@@ -101,7 +101,7 @@ BLE 功能激活后,开启广播::
 
 这时,你可以在主机端,读取到被写入的值。
 
-.. image:: /images/introduction_nrfconenct.png
+.. image:: ./images/introduction_nrfconenct.png
     :width: 200
     :align: center
 
