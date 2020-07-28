@@ -13,6 +13,7 @@
 本模块适用于 `MicroPython <https://github.com/micropython/micropython/>`_ 及衍生的相关项目,如掌控板 `mPython <https://github.com/labplus-cn/mpython>`_ 。
 
 托管文档: https://mpython-ble.readthedocs.io/
+github: https://github.com/labplus-cn/mpython_ble
 
 模块根据蓝牙BLE的应用和饰演的角色,设计以下几大功能点:
 
@@ -25,7 +26,7 @@
 ===============
 
 
-首先需要将 `mpython_ble` 库上传到MicroPython的文件系统中。
+首先需要将 `mpython_ble <https://github.com/labplus-cn/mpython_ble>`_  库上传到MicroPython的文件系统中。
 
 
 在实例BLE Peripheral 设备前,先要配置 GATT Profile,注册一些服务和特征。通过profile来描述设备包含什么样的应用服务。
