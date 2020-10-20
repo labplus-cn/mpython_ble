@@ -28,8 +28,9 @@ class Mouse(object):
     HID mouse button code
     """
     LEFT = const(1)
-    MIDDLE = const(2)
-    RIGHT = const(4)
+    RIGHT = const(2)
+    MIDDLE = const(4)
+
 
 
 class KeyboardCode:

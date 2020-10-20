@@ -9,16 +9,16 @@ HID设备(Human Interface Devices)键值常量定义
    如果你的可用内存不多,不建议你使用 hidcode 模块。你可按需,自行定义常量,减少不必要的内存浪费。
 
 
-KeyboardCode
+Mouse
 --------------
 
 鼠标常量
 
-.. py:class:: KeyboardCode()
+.. py:class:: Mouse()
 
-   .. py:attribute:: KeyboardCode.LEFT = 1
-   .. py:attribute:: KeyboardCode.MIDDLE = 2
-   .. py:attribute:: KeyboardCode.RIGHT = 4
+   .. py:attribute:: Mouse.LEFT = 1
+   .. py:attribute:: Mouse.RIGHT = 2
+   .. py:attribute:: Mouse.MIDDLE = 4
 
 KeyboardCode
 --------------

@@ -120,6 +120,9 @@ Centeral类
 连接成功后, `connected_info` 有被连接的外围设备的设备信息元组。
 格式: (addr_type, addr, name, adv_type, rssi) 
 
+.. py:method:: Centeral.disconnect()
+
+中央设备断开与外围设备的连接。
 
 BLEUART类
 --------------
