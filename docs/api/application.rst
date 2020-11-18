@@ -143,17 +143,39 @@ RX                0x0003                  read/notify
 - TX : 此特性用于将数据发送回传感器节点，并且可以由连接的中央设备（移动电话，平板电脑等）写入。
 - RX : 此特性用于将数据发送到连接的中央设备。可以通过连接的设备启用通知，以便每次更新TX通道时发出警报
 
+.. image:: https://thejeshgn.com/wp-content/uploads/2016/10/uart_over_ble.jpg
+    :width: 80%
+    :align: center
+    
+
+常量
+~~~~~~~~~
+
+.. py:attribute:: BLEUART.SLAVE = 0
+
+从机角色
+
+.. py:attribute:: BLEUART.MASTER = 1
+
+主机角色
 
 构建对象
 ~~~~~~~~~
 
-.. py:class:: BLEUART(name=b'ble_uart', appearance=0, rxbuf=100)
 
-UART服务的外围设备, 可用于模拟串口数据收发。对于初级BLE用户,可不用关注BLE协议,即可达到两设备之间的通讯。
+
+.. py:class:: BLEUART(name=b'ble_uart', appearance=0, rxbuf=100,role=BLEUART.SLAVE, slave_mac=None)
+
+UART服务的外围设备, 可用于模拟串口数据收发。对于初级BLE用户,可不用关注BLE协议,即可达到两设备之间的通讯。支持主从机模式设置，默认为从机模式。
 
     - `name` -  蓝牙设备名称。类型为字节类型。
     - `appearance` -  16-bit 数字编码。定义蓝牙设备的外观,像电脑或手机会根据该外观标识,给定外观图标。默认为Unknown(0)。
     - `rxbuf` - UART的接收缓存大小设置,单位为 Byte。
+    -  `role` - 设置UART的角色，主，从机，默认为从机。
+
+        - `BLEUART.SLAVE` 
+        - `BLEUART.MASTER`
+    -  `slave_mac` - 默认为None。在MASTER主机模式在默认连接 `name` 参数名称的ble设备，你也可以指定连接设置mac地址。类型为 `Bytes`。
 
 方法
 ~~~~~~~~~~
