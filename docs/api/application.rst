@@ -168,14 +168,14 @@ RX                0x0003                  read/notify
 
 UART服务的外围设备, 可用于模拟串口数据收发。对于初级BLE用户,可不用关注BLE协议,即可达到两设备之间的通讯。支持主从机模式设置，默认为从机模式。
 
-    - `name` -  蓝牙设备名称。类型为字节类型。
+    - `name` -  当为slave模式时，蓝牙设备名称。类型为字节类型。当为master时，`name`参数为你需要设备的名称。
     - `appearance` -  16-bit 数字编码。定义蓝牙设备的外观,像电脑或手机会根据该外观标识,给定外观图标。默认为Unknown(0)。
     - `rxbuf` - UART的接收缓存大小设置,单位为 Byte。
     -  `role` - 设置UART的角色，主，从机，默认为从机。
 
         - `BLEUART.SLAVE` 
         - `BLEUART.MASTER`
-    -  `slave_mac` - 默认为None。在MASTER主机模式在默认连接 `name` 参数名称的ble设备，你也可以指定连接设置mac地址。类型为 `Bytes`。
+    -  `slave_mac` - 默认为None。在master模式在默认连接 `name` 参数名称的ble设备，你也可以指定连接设置mac地址。类型为 `Bytes`。
 
 方法
 ~~~~~~~~~~
@@ -184,9 +184,11 @@ UART服务的外围设备, 可用于模拟串口数据收发。对于初级BLE�
 
 返回可读字节数量
 
-.. py:method:: BLEUART.irq()
+.. py:method:: BLEUART.irq(handler)
 
 当串口接收的数据的中断函数。
+
+    - `handle` - 中断函数
 
 .. py:method:: BLEUART.read(size=Nones)
 
