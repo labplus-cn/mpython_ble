@@ -171,7 +171,7 @@ UART服务的外围设备, 可用于模拟串口数据收发。对于初级BLE�
     - `name` -  当为slave模式时，蓝牙设备名称。类型为字节类型。当为master时，`name`参数为你需要设备的名称。
     - `appearance` -  16-bit 数字编码。定义蓝牙设备的外观,像电脑或手机会根据该外观标识,给定外观图标。默认为Unknown(0)。
     - `rxbuf` - UART的接收缓存大小设置,单位为 Byte。
-    -  `role` - 设置UART的角色，主，从机，默认为从机。
+    -  `role` - 设置UART的角色，主，从机，默认为从机。当为master模式，`__init__()` 为阻塞，直至连接成功才会完成实例。
 
         - `BLEUART.SLAVE` 
         - `BLEUART.MASTER`

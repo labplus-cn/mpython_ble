@@ -41,6 +41,7 @@ class BLEUART():
         UART_TX = Characteristic(UUID('6E400003-B5A3-F393-E0A9-E50E24DCCA9E'), properties='-n')
         UART_RX = Characteristic(UUID('6E400002-B5A3-F393-E0A9-E50E24DCCA9E'), properties='-w')
         self._rx_cb = None
+        is_connected = False
         if self.role == 0:
             profile = Profile()
             profile.add_services(UART_SERVICE.add_characteristics(UART_TX, UART_RX))
@@ -51,9 +52,10 @@ class BLEUART():
             self.ble.advertise(True)
         else:
             self.ble = Centeral()
-            self.profile = self.ble.connect(name=name) if slave_mac is None else self.ble.connect(addr=slave_mac)
-            if self.profile is None:
-                raise BLEError('Connection error.')
+            while not is_connected:
+                self.profile = self.ble.connect(name=name) if slave_mac is None else self.ble.connect(addr=slave_mac)
+                if self.profile:
+                    is_connected = True
             # discovery rx,tx value_handle
             for service in self.profile:
                 if service.uuid == UART_SERVICE.uuid:
