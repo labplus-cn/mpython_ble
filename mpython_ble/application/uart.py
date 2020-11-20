@@ -41,7 +41,7 @@ class BLEUART():
         UART_TX = Characteristic(UUID('6E400003-B5A3-F393-E0A9-E50E24DCCA9E'), properties='-n')
         UART_RX = Characteristic(UUID('6E400002-B5A3-F393-E0A9-E50E24DCCA9E'), properties='-w')
         self._rx_cb = None
-        is_connected = False
+        connected = False
         if self.role == 0:
             profile = Profile()
             profile.add_services(UART_SERVICE.add_characteristics(UART_TX, UART_RX))
@@ -52,10 +52,10 @@ class BLEUART():
             self.ble.advertise(True)
         else:
             self.ble = Centeral()
-            while not is_connected:
+            while not connected:
                 self.profile = self.ble.connect(name=name) if slave_mac is None else self.ble.connect(addr=slave_mac)
                 if self.profile:
-                    is_connected = True
+                    connected = True
             # discovery rx,tx value_handle
             for service in self.profile:
                 if service.uuid == UART_SERVICE.uuid:
@@ -79,6 +79,13 @@ class BLEUART():
             self.rx_buffer += data
             if self._rx_cb:
                 self._rx_cb()
+
+    def is_connected(self):
+        if self.role == self.SLAVE:
+            return True if self.ble.connections != set() else False
+        elif self.role == self.MASTER:
+            return self.ble.is_connected()
+
 
     def irq(self, handler):
         self._rx_cb = handler

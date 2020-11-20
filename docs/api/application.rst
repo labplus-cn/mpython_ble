@@ -180,6 +180,10 @@ UART服务的外围设备, 可用于模拟串口数据收发。对于初级BLE�
 方法
 ~~~~~~~~~~
 
+.. py:method:: BLEUART.is_connected()
+
+返回连接状态
+
 .. py:method:: BLEUART.any()
 
 返回可读字节数量
