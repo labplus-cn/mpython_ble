@@ -62,7 +62,7 @@ class ADType(object):
     AD_TYPE_COMPLETE_LOCAL_NAME = const(0x09)  # Complete local device name.
     AD_TYPE_TX_POWER_LEVEL = const(0x0A)  # Transmit power level.
     AD_TYPE_APPEARANCE = const(0x19)  # Appearance.
-
+    AD_TYPE_MANUFACTURER_SPECIFIC_DATA = const(0xFF) # Manufacturer Specific Data.
 
 class AdvType(object):
     """

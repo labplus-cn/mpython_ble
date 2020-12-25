@@ -28,7 +28,7 @@ from ..const import IRQ
 class Peripheral(object):
     """ 外围设备 """
 
-    def __init__(self, profile, name=b'mpy_ble', appearance=0, adv_services=None, resp_services=None, interval_us=500000, connectable=True):
+    def __init__(self, profile, name=b'mpy_ble', appearance=None, adv_services=None, resp_services=None, interval_us=500000, connectable=True):
         self.interval_us = interval_us
         self.connectable = connectable
         self.ble = bluetooth.BLE()

@@ -1,6 +1,7 @@
 :py:mod:`mpython_ble.application`
 =================================
 
+
 基于蓝牙BLE的应用,本模块中定义了Peripheral(外围设备) 和Centeral(中央设备)两大类。
 
     - 外围设备：这一般就是非常小或者简单的低功耗设备，用来提供数据，并连接到一个更加相对强大的中心设备。例如蓝牙心率计。
@@ -16,11 +17,11 @@ BLE 外围设备
 构建对象
 ~~~~~~~~~
 
-.. py:class:: Peripheral(profile, name=b'mpy_ble', appearance=0, adv_services=None, resp_services=None, interval_us=500000, connectable=True)
+.. py:class:: Peripheral(profile, name=b'mpy_ble', appearance=None, adv_services=None, resp_services=None, interval_us=500000, connectable=True)
 
     - `profile` - GATT :class:`Profile` 实例对象。用于描述BLE设备具备哪些服务信息。有关Profile的用法,请查阅 :class:`Profile` 类。
     - `name` -  蓝牙设备名称。类型为字节类型。
-    - `appearance` -  16-bit 数字编码。定义蓝牙设备的外观,像电脑或手机会根据该外观标识,给定外观图标。默认为Unknown(0)。
+    - `appearance` -  16-bit 数字编码。定义蓝牙设备的外观,像电脑或手机会根据该外观标识,给定外观图标。默认为None。
     - `adv_services` - 广播负载服务。外围设备会向广播通达发送设备的广播数据,告诉主机,设备具有哪些服务。
     - `resp_services` - 扫描应答负载服务。当主机主动扫描广播设备,发起Scan Request,外围设备会应答resp_services服务。
     - `interval_us` - 以指定的时间间隔（以微秒为单位）广播
@@ -326,4 +327,6 @@ HID键盘设备的函数方法
 .. py:method:: HID.consumer_send(consumer_code)
 
 消费类设备单个按键点击。
+
+
 

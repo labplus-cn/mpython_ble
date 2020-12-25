@@ -37,10 +37,17 @@ from ..const import ADType
 class BLEError(Exception):
     pass
 
+class AD_Structure:
+    """ AD Structure """
+    def __init__(self,ad_type,ad_data):
+        self.ad_type = ad_type
+        self.ad_data = ad_data
+
+
 # Generate a payload to be passed to gap_advertise(adv_data=...).
 
 
-def advertising_payload(limited_disc=False, br_edr=False, name=None, services=None, appearance=0):
+def advertising_payload(limited_disc=False, br_edr=False, name=None, services=None, appearance=None, ad_structure=None):
     payload = bytearray()
     # AD Structure
 
@@ -62,7 +69,15 @@ def advertising_payload(limited_disc=False, br_edr=False, name=None, services=No
                 _append(ADType.ADV_TYPE_UUID128_COMPLETE, b)
 
     # AD Type: appearance
-    _append(ADType.AD_TYPE_APPEARANCE, struct.pack('<h', appearance))
+    if appearance:
+        _append(ADType.AD_TYPE_APPEARANCE, struct.pack('<h', appearance))
+    # custom expand ad structre
+    if ad_structure:
+        for ad in ad_structure:
+            if isinstance(ad,AD_Structure):
+                _append(ad.ad_type,ad.ad_data)
+            else:
+                raise BLEError('Muse be AD_Structure obj.')
     # Check Adv payload length
     if len(payload) > 31:
         raise BLEError('Avd payload length must not exceed {} Bytes,but now {} Btyes'.format(31, len(payload)))

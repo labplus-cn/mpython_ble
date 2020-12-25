@@ -47,3 +47,13 @@ Nordic UART
 .. literalinclude:: ../examples/ble_ppt_remote.py
     :caption: ppt翻页笔: examples/ble_ppt_remote.py
     :linenos:
+
+
+
+
+Beacon
+----------------
+
+.. literalinclude:: ../examples/ibeacon.py
+    :caption: iBeacon: examples/ibeacon.py
+    :linenos:

@@ -31,4 +31,5 @@
    characteristics
    descriptors
    hidcode
+   beacon
 

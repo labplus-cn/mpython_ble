@@ -23,7 +23,7 @@ env_sense_service.add_characteristics(temp_char)
 profile.add_services(env_sense_service)
 
 # 实例BLE外设
-perip_temp = Peripheral(name=b'mpy_temp', profile=profile, adv_services=profile.services_uuid)
+perip_temp = Peripheral(name=b'mpy_temp', profile=profile, adv_services=[env_sense_service.uuid])
 # 开始广播
 perip_temp.advertise(True)
 
