@@ -38,7 +38,7 @@ author = u'Tangliufeng@LabPlus'
 # built documents.
 #
 # The short X.Y version.
-release = version = u'1.1'
+release = version = u'1.2'
 # The full version, including alpha/beta/rc tags.
 
 

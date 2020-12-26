@@ -23,7 +23,7 @@
 from bluetooth import UUID
 import gc
 
-__version__ = "1.1"
+__version__ = "1.2"
 
 gc.collect()
 gc.threshold(gc.mem_free() // 4 + gc.mem_alloc())
